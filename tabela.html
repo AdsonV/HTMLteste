@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela com os valores do formulário</title>
+    <link rel="shortcut icon" href="imagens/logo.png" type="image/x-icon">
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+        
+        td{
+            flex: auto;
+            text-align: center;
+            border-radius: 5%;
+            border: 1px solid navy;
+        }
+
+        tr {
+            color: rgb(4, 4, 80);
+            font-size: medium;
+            background-color: aliceblue;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .requisicoes {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: large;
+            color: rgb(1, 112, 16);
+            background-color: rgb(248, 248, 67);
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center; margin: auto;">
+        Dados do formulário.
+    </h1>
+    <button id="teste" onclick="tabela()"> ATUALIZAR TABELA</button>
+    <table id="table">
+        <tr class="requisicoes">
+            <td>Nome:
+            <td>E-mail:
+            <td>Data de entrada:
+            <td>Data de saída:
+            <td>Observações:</td>
+            <td>Adultos:
+            <td>Crianças:
+        </tr>
+    </table>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="jquery.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

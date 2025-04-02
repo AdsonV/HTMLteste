@@ -65,7 +65,7 @@ main .secao2 #quartos img{
     margin: 10px;
 }
 main .secao3{
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     margin-top: 50px;
 }
@@ -74,6 +74,12 @@ main .secao3 label{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
     font-size: 20px;
+}
+
+main .secao3 .form{
+    display: grid;
+    padding: auto;
+    margin-left: 20px;
 }
 
 main .secao3 #div2 .formulario{
@@ -89,7 +95,7 @@ textarea{
     height: 100px;
     width: 200px;
 }
-main .secao3 #div3 .formulario2{
+main .secao3 #div3{
     display: flexbox;
     margin-left: 10px;
 }
