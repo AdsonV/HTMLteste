@@ -6,53 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela com os valores do formulário</title>
     <link rel="shortcut icon" href="imagens/logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             background-color: aliceblue;
         }
-        
-        td{
-            flex: auto;
-            text-align: center;
-            border-radius: 5%;
-            border: 1px solid navy;
-        }
 
-        tr {
-            color: rgb(4, 4, 80);
-            font-size: medium;
-            background-color: aliceblue;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        table {
+            display: flexbox;
+            margin-top: 50px;
         }
 
         .requisicoes {
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-size: large;
-            color: rgb(1, 112, 16);
-            background-color: rgb(248, 248, 67);
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: x-large;
+            color: rgb(148, 40, 13);
+            background-color: rgb(247, 247, 97);
+            border: 1px solid rgb(124, 117, 21);
+        }
+
+        td {
+            background-color: aquamarine;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            border-radius: 5%;
+            border: 1px solid navy;
         }
     </style>
 </head>
 
 <body>
-    <h1 style="text-align: center; margin: auto;">
+    <h1 style="text-align: center; margin: auto; font-family: 'Times New Roman', Times, serif;">
         Dados do formulário.
     </h1>
-    <button id="teste" onclick="tabela()"> ATUALIZAR TABELA</button>
-    <table id="table">
-        <tr class="requisicoes">
-            <td>Nome:
-            <td>E-mail:
-            <td>Data de entrada:
-            <td>Data de saída:
-            <td>Observações:</td>
-            <td>Adultos:
-            <td>Crianças:
-        </tr>
+    <table id="table" class="container-fluid">
+        <thead>
+            <tr class="requisicoes">
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Data de Entrada</th>
+                <th>Data de Saída</th>
+                <th>Observações</th>
+                <th>Adultos</th>
+                <th>Crianças</th>
+            </tr>
+        </thead>
+        <tbody id="tbody" class=" col-sm-6 col-md-6 col-lg-5 col-xl-6">
+        </tbody>
     </table>
-    
+
+    <script>
+        fetch('http://localhost:3000/formularios')
+            .then(response => response.json())
+            .then(dados => {
+                const table = document.getElementById('tbody');
+                const linha = document.createElement('div');
+
+                table.innerHTML = dados.map(dados => linha.innerHTML = `
+                <tr>
+                <td>${dados.nome}</td>
+                <td>${dados.email}</td>
+                <td>${dados.dataentrada}</td>
+                <td>${dados.datasaida}</td>
+                <td>${dados.obs}</td>
+                <td>${dados.adultos}</td>
+                <td>${dados.criancas}</td>
+                </tr>
+                    `).join("");
+            })
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="jquery.js"></script>
-<script src="index.js"></script>
 </body>
+
 </html>
